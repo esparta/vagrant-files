@@ -12,19 +12,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
   
-  if File.file?('proxy.config') 
-     file = File.open("proxy.config","rb")  
-     contents = file.read
-     puts "Provisioning with proxy:" << contents
+  config.vm.provision "shell" do |s|
+       if File.file?('proxy.config')
+          file = File.open("proxy.config","rb")
+          contents = file.read
+          puts "Provisioning with proxy: " << contents
+          s.args = contents
+       end
+      s.path = "bootstrap.sh"
   end
-  Vagrant.configure("2") do |config|
-      config.vm.provision "shell" do |s|
-         s.args = contents
-          s.path = "bootstrap.sh"
-      end
-  end
-  config.vm.provision :shell, :path => "bootstrap.sh", :args => contents
 
+  ## The following is the handler for sustitution of forward port on jekyll
+  #<jekyll>
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
