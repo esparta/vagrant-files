@@ -8,7 +8,7 @@ sudo sed -i "s/http:\/\/us.archive.ubuntu.com\/ubuntu\//mirror:\/\/mirrors.ubunt
 #  * http://user@ip:port
 #  * http://ip:port
 #A easy way to do it with command line
-# $echo "http://192.168.1.100:8088" > proxy.config
+# echo "http://192.168.1.100:8088" > proxy.config
 
 if [ ! -z $1 ]; then
 
@@ -27,9 +27,9 @@ fi
 
 ## Update the ubuntu/devian box
 sudo apt-get update
+sudo apt-get install build-essential  -y
 
-## install packages to get rvm
-sudo apt-get install curl -y
-## Get the rvm, let rvm do the pre-requisites
-curl -L https://get.rvm.io | bash -s stable --ruby
+## uncomment these line for the lastest ruby version via rvm
+#sudo apt-get install curl -y
+#curl -L https://get.rvm.io | bash -s stable --ruby
 
