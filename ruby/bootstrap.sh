@@ -29,14 +29,7 @@ fi
 sudo apt-get update
 
 ## install packages to build ruby
-sudo apt-get install build-essential openssl \
-libcurl4-openssl-dev libreadline6 libreadline6-dev \
-curl libmysqlclient-dev git-core zlib1g zlib1g-dev \
-libssl-dev libyaml-dev libsqlite3-dev \
-sqlite3 libxml2-dev libxslt-dev autoconf \
-libc6-dev ncurses-dev automake libtool bison \
-subversion pkg-config imagemagick -y
-
+sudo apt-get install curl -y
 ## Get the rvm
 curl -L https://get.rvm.io | bash -s stable --ruby
 
