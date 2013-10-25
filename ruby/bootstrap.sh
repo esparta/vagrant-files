@@ -28,8 +28,8 @@ fi
 ## Update the ubuntu/devian box
 sudo apt-get update
 
-## install packages to build ruby
+## install packages to get rvm
 sudo apt-get install curl -y
-## Get the rvm
+## Get the rvm, let rvm do the pre-requisites
 curl -L https://get.rvm.io | bash -s stable --ruby
 
