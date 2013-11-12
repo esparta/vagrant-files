@@ -8,21 +8,19 @@ sudo sed -i "s/http:\/\/us.archive.ubuntu.com\/ubuntu\//mirror:\/\/mirrors.ubunt
 #  * http://user@ip:port
 #  * http://ip:port
 #A easy way to do it with command line
-# echo "http://192.168.1.100:8088" > proxy.config
+# $echo "http://192.168.1.100:8088" > proxy.config
 
 if [ ! -z $1 ]; then
-
+  ## We have a proxy...
   BASH_FILE=/home/vagrant/.bashrc
   proxy=$1
   echo "Configuring proxy: $proxy"
-  if [[ ! -z $proxy   ]]; then
-      ## First, the bash environment variable
-      echo "export http_proxy=$proxy" >> $BASH_FILE
-      echo "export https_proxy=$proxy" >> $BASH_FILE
-      ## Config the apt file for the apt-get update
-      echo "Acquire::http::proxy \"$proxy\";" >> /etc/apt/apt.conf
-      echo "Acquire::https::proxy \"$proxy\";" >> /etc/apt/apt.conf
-  fi
+  ## First, the bash environment variable
+  echo "export http_proxy=$proxy" >> $BASH_FILE
+  echo "export https_proxy=$proxy" >> $BASH_FILE
+  ## Config the apt file for the apt-get update
+  echo "Acquire::http::proxy \"$proxy\";" >> /etc/apt/apt.conf
+  echo "Acquire::https::proxy \"$proxy\";" >> /etc/apt/apt.conf
 fi
 
 ## Update the ubuntu/devian box

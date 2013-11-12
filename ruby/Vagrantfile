@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       s.path = "bootstrap.sh"
   end
 
-  ## The following is the handler for sustitution of forward port on jekyll
+  ## Placeholder for jekyll stuff (port-forwarding)
   #<jekyll>
 
   # The url from where the 'config.vm.box' box will be fetched if it
